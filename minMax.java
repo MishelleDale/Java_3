@@ -11,21 +11,19 @@ public class minMax {
             list.add(34);
             list.add(76);
         
-        double sum = 0;
+        double sumOfElements = 0;
         for (int i = 0; i < list.size(); i++) {
-            int temp = list.get(i);
-            sum = sum + temp;
-            logger.info("Складываем все элементы списка: " + sum);
+            int temporalFigure = list.get(i);
+            sumOfElements = sumOfElements + temporalFigure;
+            logger.info("Складываем все элементы списка: " + sumOfElements);
             }
-        logger.info("Выводим среднее значение списка");
-        System.out.println("Среднее значение равно: " + sum/list.size());
         
+        logger.info("Выводим среднее значение списка");
+        System.out.println("Среднее значение равно: " + sumOfElements/list.size());     
         logger.info("Выводим максимальное значение списка");
         System.out.println("Максимальное значение равно: " + Collections.max(list));
         logger.info("Выводим минимальное значение списка");
         System.out.println("Минимальное значение равно: " + Collections.min(list));
     }
-
     public static final Logger logger = Logger.getLogger("main");
-
 }
