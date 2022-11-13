@@ -12,21 +12,18 @@ public class arraySort{
     }
 
     public static int[] mergeSort(int[] array) {
-        int[] tmp;
+        int[] temporalArray;
         int[] currentArray = array;
         int[] endArray = new int[array.length];
-
         int size = 1;
         while (size < array.length) {
             for (int i = 0; i < array.length; i += 2 * size) {
                 merge(currentArray, i, currentArray, i + size, endArray, i, size);
             }
-
             logger.info("Сравниваем попарно массивы:");
-            tmp = currentArray;
+            temporalArray = currentArray;
             currentArray = endArray;
-            endArray = tmp;
-
+            endArray = temporalArray;
             size = size * 2;
             System.out.println(arrayToString(currentArray));
         }
@@ -37,7 +34,6 @@ public class arraySort{
                               int finalArrayStart, int size) {
         int index1 = array1Start;
         int index2 = array2Start;
-
         int array1End = Math.min(array1Start + size, array1.length);
         int array2End = Math.min(array2Start + size, array2.length);
 
@@ -60,19 +56,17 @@ public class arraySort{
             }
         }
     }
-
     private static String arrayToString(int[] array) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        StringBuilder stringBuild = new StringBuilder();
+        stringBuild.append("[");
         for (int i = 0; i < array.length; i++) {
             if (i > 0) {
-                sb.append(", ");
+                stringBuild.append(", ");
             }
-            sb.append(array[i]);
+            stringBuild.append(array[i]);
         }
-        sb.append("]");
-        return sb.toString();
+        stringBuild.append("]");
+        return stringBuild.toString();
     }
-
     public static final Logger logger = Logger.getLogger("main");
 }
